@@ -1,9 +1,9 @@
 package main
 
 import (
-	"codewars/kata_6/positions_average"
+	"codewars/kata_5/testignore"
 )
 
 func main() {
-	positions_average.Start()
+	testignore.Start()
 }
