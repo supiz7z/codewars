@@ -1,9 +1,9 @@
 package main
 
 import (
-	"codewars/kata_5/testignore"
+	"codewars/kata_4/explosive_sum_v2"
 )
 
 func main() {
-	testignore.Start()
+	explosive_sum_v2.Start()
 }
