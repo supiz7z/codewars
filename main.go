@@ -1,9 +1,9 @@
 package main
 
 import (
-	"codewars/kata_4/explosive_sum_v2"
+	"codewars/kata_6/positions_average"
 )
 
 func main() {
-	explosive_sum_v2.Start()
+	positions_average.Start()
 }

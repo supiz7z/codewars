@@ -27,5 +27,6 @@ func Start() {
 	//var s = "466960, 069060, 494940, 060069, 060090, 640009, 496464, 606900, 004000, 944096"
 	//var s = "6900690040, 4690606946, 9990494604"
 	posAverage := PosAverage(s)
+	//fmt.Println(posAverage)
 	fmt.Printf("вероятность равна %.10f процентов", posAverage)
 }
