@@ -1,9 +1,7 @@
 package main
 
-import (
-	"codewars/kata_6/positions_average"
-)
+import "codewars/kata_6/prime_factors"
 
 func main() {
-	positions_average.Start()
+	prime_factors.Start()
 }
