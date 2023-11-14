@@ -1,9 +1,8 @@
 package main
 
-import (
-	"codewars/kata_6/dominant_primes"
-)
+import "codewars/kata_6/find_the_odd_int"
 
 func main() {
-	dominant_primes.Start()
+
+	find_the_odd_int.Start()
 }
