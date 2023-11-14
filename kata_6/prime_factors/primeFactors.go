@@ -24,7 +24,6 @@ func PrimeFactors(n int) []int {
 
 func Start() {
 	var n = 2147483648
-	//var n = 2147483647
 	factors := PrimeFactors(n)
 	fmt.Println(factors)
 }

@@ -1,7 +1,9 @@
 package main
 
-import "codewars/kata_6/prime_factors"
+import (
+	"codewars/kata_6/dominant_primes"
+)
 
 func main() {
-	prime_factors.Start()
+	dominant_primes.Start()
 }
