@@ -1,10 +1,10 @@
 package main
 
 import (
-	"codewars/kata_6/disguised_sequence_1"
+	"codewars/kata_6/consonant_value"
 )
 
 func main() {
 
-	disguised_sequence_1.Start()
+	consonant_value.Start()
 }
