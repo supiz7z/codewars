@@ -1,10 +1,9 @@
 package main
 
 import (
-	"codewars/kata_6/consonant_value"
+	"codewars/kata_6/how_many_numbers"
 )
 
 func main() {
-
-	consonant_value.Start()
+	how_many_numbers.Start()
 }
