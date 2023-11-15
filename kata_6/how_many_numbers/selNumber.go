@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func IsCorrect(s string, d int) bool {
+func IsValid(s string, d int) bool {
 	for j := 1; j < len(s); j++ {
 		a, _ := strconv.Atoi(string(s[j]))
 		b, _ := strconv.Atoi(string(s[j-1]))
@@ -20,7 +20,7 @@ func SelNumber(n, d int) int {
 	var count int
 	for i := 12; i <= n; i++ {
 		s := strconv.Itoa(i)
-		if IsCorrect(s, d) {
+		if IsValid(s, d) {
 			count += 1
 		}
 	}
