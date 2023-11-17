@@ -1,9 +1,7 @@
 package main
 
-import (
-	"codewars/kata_6/how_many_numbers"
-)
+import "codewars/kata_6/reverse_or_rotate"
 
 func main() {
-	how_many_numbers.Start()
+	reverse_or_rotate.Start()
 }
