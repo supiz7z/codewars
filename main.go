@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(some_functions.DigitCount(1234567890123456789))
+	fmt.Println(some_functions.IsPrime(2))
 }

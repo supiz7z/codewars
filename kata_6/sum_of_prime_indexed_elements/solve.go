@@ -3,6 +3,9 @@ package sum_of_prime_indexed_elements
 import "fmt"
 
 func IsPrime(n int) bool {
+	if n == 2 {
+		return true
+	}
 	if n%2 == 0 {
 		return false
 	}

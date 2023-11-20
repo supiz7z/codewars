@@ -5,6 +5,9 @@ import (
 )
 
 func IsPrime(n int) bool {
+	if n == 2 {
+		return true
+	}
 	if n%2 == 0 {
 		return false
 	}

@@ -6,10 +6,22 @@ import (
 )
 
 func IsPrime(n int) bool {
+	if n == 2 {
+		return true
+	}
 	if n%2 == 0 {
 		return false
 	}
 	for i := 3; i*(i-1) < n; i += 2 {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return n > 1
+}
+
+func IsPrimeOld(n int) bool {
+	for i := 2; i*(i-1) < n; i++ {
 		if n%i == 0 {
 			return false
 		}
