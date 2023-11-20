@@ -2,13 +2,24 @@ package prime_factors
 
 import (
 	"fmt"
-	"math/big"
 )
+
+func IsPrime(n int) bool {
+	if n%2 == 0 {
+		return false
+	}
+	for i := 3; i*(i-1) < n; i += 2 {
+		if n%i == 0 {
+			return false
+		}
+	}
+	return n > 1
+}
 
 func PrimeFactors(n int) []int {
 	var arr []int
 	for i := 2; n >= 2; {
-		if big.NewInt(int64(n)).ProbablyPrime(0) {
+		if IsPrime(n) {
 			arr = append(arr, n)
 			return arr
 		}

@@ -3,7 +3,10 @@ package sum_of_prime_indexed_elements
 import "fmt"
 
 func IsPrime(n int) bool {
-	for i := 2; i*(i-1) < n; i++ {
+	if n%2 == 0 {
+		return false
+	}
+	for i := 3; i*(i-1) < n; i += 2 {
 		if n%i == 0 {
 			return false
 		}
