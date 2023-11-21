@@ -1,10 +1,9 @@
 package main
 
 import (
-	"codewars/some_functions"
-	"fmt"
+	"codewars/kata_5/find_the_smallest"
 )
 
 func main() {
-	fmt.Println(some_functions.IsPrime(2))
+	find_the_smallest.Start()
 }

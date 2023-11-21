@@ -50,11 +50,33 @@ func PrimeFactors(n int) []int {
 	return arr
 }
 
-func DigitCount(n int) int {
+func DigitsCount(n int) int {
 	if n/10 == 0 {
 		return 1
 	}
-	return DigitCount(n/10) + 1
+	return DigitsCount(n/10) + 1
+}
+
+func DigitsCountEven(n int) int {
+	var total int
+	if (n%10)%2 == 0 {
+		total += 1
+	}
+	if n/10 == 0 {
+		return total
+	}
+	return DigitsCountEven(n/10) + total
+}
+
+func DigitsCountOdd(n int) int {
+	var total int
+	if (n%10)%2 != 0 {
+		total += 1
+	}
+	if n/10 == 0 {
+		return total
+	}
+	return DigitsCountOdd(n/10) + total
 }
 
 func ReverseString(s string) string {
@@ -75,6 +97,14 @@ func ReverseDigitsOfNumber(n int) int {
 	return n
 }
 
-func RemoveByIndexFromSlice(arr []int, i int) []int {
+func RemoveFromSliceByIndex(arr []int, i int) []int {
 	return append(arr[:i], arr[i+1:]...)
+}
+
+func InsertIntoSliceByIndex(arr []int, elem, i int) []int { //функция говна, но можно юзать при запихивании не в конец
+	var resultArr []int
+	resultArr = append(resultArr, arr[:i]...)
+	resultArr = append(resultArr, elem)
+	resultArr = append(resultArr, arr[i:]...)
+	return resultArr
 }
