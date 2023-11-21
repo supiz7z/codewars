@@ -7,7 +7,7 @@ import (
 
 func Smallest(n int64) []int64 {
 	minimum := n
-	s := strconv.Itoa(int(n))
+	s := strconv.FormatInt(n, 10)
 	var result = []int64{n, 0, 0}
 	for i := range s {
 		elem := string(s[i])
