@@ -2,7 +2,7 @@ package sum_of_intervals
 
 import "fmt"
 
-func CrossNew(arr1, arr2 [2]int) bool {
+func Cross(arr1, arr2 [2]int) bool {
 	if arr1[1] > arr2[0] && arr1[0] < arr2[1] {
 		return true
 	}
@@ -16,7 +16,7 @@ func SumOfIntervals(arr [][2]int) int {
 	for i := 0; i < len(arr)-1; i++ {
 		for j := i + 1; j < len(arr); j++ {
 			fmt.Println(arr[i], arr[j])
-			if CrossNew(arr[i], arr[j]) {
+			if Cross(arr[i], arr[j]) {
 				arr[i][0] = min(arr[i][0], arr[j][0])
 				arr[i][1] = max(arr[i][1], arr[j][1])
 				arr = append(arr[:j], arr[j+1:]...)
