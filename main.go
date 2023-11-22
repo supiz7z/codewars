@@ -1,9 +1,9 @@
 package main
 
 import (
-	"codewars/kata_5/find_the_smallest"
+	"codewars/kata_4/sum_of_intervals"
 )
 
 func main() {
-	find_the_smallest.Start()
+	sum_of_intervals.Start()
 }

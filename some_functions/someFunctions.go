@@ -87,7 +87,17 @@ func ReverseString(s string) string {
 	return string(arr)
 }
 
-func ReverseDigitsOfNumber(n int) int {
+func ReverseDigitsOfNumberByNumber(n int) int {
+	var result int
+	for n > 0 {
+		memory := n % 10
+		result = result*10 + memory
+		n /= 10
+	}
+	return result
+}
+
+func ReverseDigitsOfNumberByString(n int) int {
 	s := strconv.Itoa(n)
 	arr := []rune(s)
 	for i := 0; i < len(arr)/2; i++ {
