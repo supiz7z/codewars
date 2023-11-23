@@ -87,7 +87,7 @@ func ReverseString(s string) string {
 	return string(arr)
 }
 
-func ReverseDigitsOfNumberByNumber(n int) int {
+func ReverseDigitsOfNumberByInt(n int) int {
 	var result int
 	for n > 0 {
 		memory := n % 10
