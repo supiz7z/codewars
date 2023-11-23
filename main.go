@@ -1,9 +1,9 @@
 package main
 
 import (
-	"codewars/kata_4/sum_of_intervals"
+	"codewars/kata_4/matrix_determinant"
 )
 
 func main() {
-	sum_of_intervals.Start()
+	matrix_determinant.Start()
 }
