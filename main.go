@@ -1,9 +1,9 @@
 package main
 
 import (
-	"codewars/kata_4/matrix_determinant"
+	"codewars/kata_4/next_bigger_number_with_the_same_digits"
 )
 
 func main() {
-	matrix_determinant.Start()
+	next_bigger_number_with_the_same_digits.Start()
 }
