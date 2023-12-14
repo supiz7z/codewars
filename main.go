@@ -1,9 +1,7 @@
 package main
 
-import (
-	"codewars/kata_4/next_bigger_number_with_the_same_digits"
-)
+import "codewars/kata_7/the_spiraling_box"
 
 func main() {
-	next_bigger_number_with_the_same_digits.Start()
+	the_spiraling_box.Start()
 }
