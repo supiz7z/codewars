@@ -35,7 +35,10 @@ func CreateBox(width, length int) [][]int {
 	return arr
 }
 func Start() {
-	w, l := 5, 8
+	w, l := 19, 18
 	result := CreateBox(w, l)
-	fmt.Println(result)
+	for i := range result {
+		fmt.Println(result[i])
+	}
+	//fmt.Println(result)
 }
