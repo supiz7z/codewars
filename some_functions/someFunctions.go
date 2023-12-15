@@ -107,6 +107,13 @@ func ReverseDigitsOfNumberByString(n int) int {
 	return n
 }
 
+func ReverseSlice(arr []int) []int {
+	for i := 0; i < len(arr)/2; i++ {
+		arr[i], arr[len(arr)-1-i] = arr[len(arr)-1-i], arr[i]
+	}
+	return arr
+}
+
 func RemoveFromSliceByIndex(arr []int, i int) []int {
 	return append(arr[:i], arr[i+1:]...)
 }
