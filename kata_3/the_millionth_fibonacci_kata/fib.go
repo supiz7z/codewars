@@ -4,28 +4,60 @@ import (
 	"fmt"
 	"math"
 	"math/big"
+	"math/bits"
 	"time"
 )
 
-func Find(n int64) *big.Int {
-	m := big.NewInt(n + 1)
+func Mul(x, y *big.Int) *big.Int {
+	return big.NewInt(0).Mul(x, y)
+}
 
-	f1 := big.NewInt(0)
-	f2 := big.NewInt(1)
+func Sub(x, y *big.Int) *big.Int {
+	return big.NewInt(0).Sub(x, y)
+}
 
-	if m.Cmp(big.NewInt(1)) == 0 {
-		return f1
+func Add(x, y *big.Int) *big.Int {
+	return big.NewInt(0).Add(x, y)
+}
+
+func CalA(a, b *big.Int, ch chan *big.Int) {
+	ch <- Mul(a, Sub(Mul(b, big.NewInt(2)), a))
+}
+
+func CalB(a, b *big.Int, ch chan *big.Int) {
+	ch <- Add(Mul(a, a), Mul(b, b))
+}
+
+func Find(m int64) *big.Int {
+	n := uint(m)
+	if n == 0 {
+		return big.NewInt(0)
 	}
-	if m.Cmp(big.NewInt(2)) == 0 {
-		return f2
+	chA := make(chan *big.Int)
+	chB := make(chan *big.Int)
+	a, b := big.NewInt(0), big.NewInt(1)
+	mask := bits.RotateLeft(1, bits.Len(n-1))
+	for {
+		if mask == 1 {
+			if n&mask > 0 {
+				a = Add(Mul(a, a), Mul(b, b))
+			} else {
+				a = Mul(a, Sub(Mul(b, big.NewInt(2)), a))
+			}
+			return a
+		}
+		go CalA(a, b, chA)
+		go CalB(a, b, chB)
+
+		if n&mask > 0 {
+			a = <-chB
+			b = Add(a, <-chA)
+		} else {
+			a = <-chA
+			b = <-chB
+		}
+		mask = bits.RotateLeft(mask, -1)
 	}
-	for i := 3; m.Cmp(big.NewInt(int64(i))) >= 0; i++ {
-		next := big.NewInt(0)
-		next.Add(f1, f2)
-		f1 = f2
-		f2 = next
-	}
-	return f2
 }
 
 func PlusOrMinus(n int64) int64 {
@@ -44,8 +76,8 @@ func Fib(n int64) *big.Int {
 
 func Start() {
 	t := time.Now()
-	var n int64 = 500000
-	//var n int64 = 50
+	//var n int64 = 500000
+	var n int64 = 2000000
 	result := Fib(n)
 	fmt.Println(time.Now().Sub(t), result)
 }
