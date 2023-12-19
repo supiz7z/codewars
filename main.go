@@ -1,7 +1,9 @@
 package main
 
-import "codewars/kata_3/the_millionth_fibonacci_kata"
+import (
+	"codewars/kata_4/snail"
+)
 
 func main() {
-	the_millionth_fibonacci_kata.Start()
+	snail.Start()
 }

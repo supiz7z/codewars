@@ -2,7 +2,6 @@ package the_millionth_fibonacci_kata
 
 import (
 	"fmt"
-	"math"
 	"math/big"
 	"math/bits"
 	"time"
@@ -69,7 +68,7 @@ func PlusOrMinus(n int64) int64 {
 
 func Fib(n int64) *big.Int {
 	if n < 0 {
-		return big.NewInt(0).Mul(big.NewInt(PlusOrMinus(n)), Find(int64(math.Abs(float64(n)))))
+		return big.NewInt(0).Mul(big.NewInt(PlusOrMinus(n)), Find(-n))
 	}
 	return Find(n)
 }
