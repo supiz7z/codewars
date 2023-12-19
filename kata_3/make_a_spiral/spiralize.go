@@ -25,9 +25,11 @@ func Spiralize(n int) [][]int {
 			arr[i][colEnd] = 1
 		}
 		colEnd--
+
 		if colStart >= colEnd {
 			break
 		}
+
 		for i := colEnd; i >= colStart; i-- {
 			arr[rowEnd][i] = 1
 		}
@@ -47,7 +49,7 @@ func Spiralize(n int) [][]int {
 
 func Start() {
 	//n := 5 // [[1,1,1,1,1],[0,0,0,0,1],[1,1,1,0,1],[1,0,0,0,1],[1,1,1,1,1]]
-	n := 6
+	n := 9
 	result := Spiralize(n)
 	for i := range result {
 		fmt.Println(result[i])
