@@ -125,3 +125,79 @@ func InsertIntoSliceByIndex(arr []int, elem, i int) []int { //функция г�
 	resultArr = append(resultArr, arr[i:]...)
 	return resultArr
 }
+
+func Gcd(n, d int) int {
+	for n != 0 && d != 0 {
+		if n > d {
+			n = n % d
+		} else {
+			d = d % n
+		}
+	}
+	return n + d
+}
+
+func GCD(a, b uint64) uint64 {
+	if b == 0 {
+		return a
+	}
+
+	return GCD(b, a%b)
+}
+
+func Ctz(x uint64) uint64 {
+	// This uses a binary search algorithm from Hacker's Delight.
+	n := uint64(1)
+	if (x & 0x0000FFFF) == 0 {
+		n = n + 16
+		x = x >> 16
+	}
+
+	if (x & 0x000000FF) == 0 {
+		n = n + 8
+		x = x >> 8
+	}
+
+	if (x & 0x0000000F) == 0 {
+		n = n + 4
+		x = x >> 4
+	}
+
+	if (x & 0x00000003) == 0 {
+		n = n + 2
+		x = x >> 2
+	}
+
+	return n - (x & 1)
+}
+
+func BinaryGCD(u, v uint64) uint64 {
+	shift := uint64(0)
+
+	if u == 0 {
+		return v
+	}
+
+	if v == 0 {
+		return u
+	}
+
+	shift = Ctz(u | v)
+	u >>= Ctz(u)
+
+	for {
+		v >>= Ctz(v)
+		if u > v {
+			t := v
+			v = u
+			u = t
+		}
+		v = v - u
+
+		if v == 0 {
+			break
+		}
+	}
+
+	return u << shift
+}
