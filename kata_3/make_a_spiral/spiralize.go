@@ -49,7 +49,7 @@ func Spiralize(n int) [][]int {
 
 func Start() {
 	//n := 5 // [[1,1,1,1,1],[0,0,0,0,1],[1,1,1,0,1],[1,0,0,0,1],[1,1,1,1,1]]
-	n := 9
+	n := 10
 	result := Spiralize(n)
 	for i := range result {
 		fmt.Println(result[i])

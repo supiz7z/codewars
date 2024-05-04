@@ -1,9 +1,9 @@
 package main
 
 import (
-	"codewars/kata_5/tic_tac_toe_checker"
+	"codewars/kata_3/make_a_spiral"
 )
 
 func main() {
-	tic_tac_toe_checker.Start()
+	make_a_spiral.Start()
 }
