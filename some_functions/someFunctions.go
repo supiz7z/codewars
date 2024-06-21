@@ -2,6 +2,7 @@ package some_functions
 
 import (
 	"math/big"
+	"math/rand/v2"
 	"strconv"
 )
 
@@ -124,6 +125,10 @@ func InsertIntoSliceByIndex(arr []int, elem, i int) []int { //функция г�
 	resultArr = append(resultArr, elem)
 	resultArr = append(resultArr, arr[i:]...)
 	return resultArr
+}
+
+func RandFill(minimum, maximum int) int {
+	return rand.IntN(maximum-minimum+1) + minimum
 }
 
 func Gcd(n, d int) int {

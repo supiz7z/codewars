@@ -1,9 +1,10 @@
 package main
 
 import (
-	"codewars/kata_3/make_a_spiral"
+	"codewars/far_tasks/slice_chunked"
 )
 
 func main() {
-	make_a_spiral.Start()
+	//make_a_spiral.Start()
+	slice_chunked.Start()
 }
