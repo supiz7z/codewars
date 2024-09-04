@@ -1,9 +1,12 @@
 package some_functions
 
 import (
+	"errors"
 	"math/big"
 	"math/rand/v2"
 	"strconv"
+	"strings"
+	"unicode"
 )
 
 func IsPrime(n int) bool {
@@ -129,6 +132,34 @@ func InsertIntoSliceByIndex(arr []int, elem, i int) []int { //функция г�
 
 func RandFill(minimum, maximum int) int {
 	return rand.IntN(maximum-minimum+1) + minimum
+}
+
+func CutAfter(s, after string, length int) (string, error) {
+	if i := strings.Index(s, after); i >= 0 {
+		if len(s) < i+len(after)+length {
+			return "", errors.New("too short string")
+		}
+		return s[i+len(after) : i+len(after)+length], nil
+	}
+	return "", errors.New("not found substring")
+}
+
+func CreateLogFuncName(s string) string {
+	slice := []rune(s)
+	for i := 0; i < len(slice); i++ {
+		if unicode.IsUpper(slice[i]) {
+			if i == 0 {
+				slice[i] = unicode.ToLower(slice[i])
+				continue
+			}
+			slice[i] = unicode.ToLower(slice[i])
+			var add []rune
+			add = append(add, []rune("-")...)
+			add = append(add, slice[i:]...)
+			slice = append(slice[:i], add...)
+		}
+	}
+	return string(slice)
 }
 
 func Gcd(n, d int) int {
