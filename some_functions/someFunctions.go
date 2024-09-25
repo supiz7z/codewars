@@ -2,7 +2,9 @@ package some_functions
 
 import (
 	"errors"
+	"math"
 	"math/big"
+	"math/bits"
 	"math/rand/v2"
 	"strconv"
 	"strings"
@@ -160,6 +162,46 @@ func CreateLogFuncName(s string) string {
 		}
 	}
 	return string(slice)
+}
+
+// MaxLen возвращает максимальную длину тонкой балки, которую можно пронести
+// в перпендикулярных коридорах длиной a и b соответственно
+func MaxLen(a, b float64) float64 {
+	return math.Pow(math.Pow(a, float64(2)/3)+math.Pow(b, float64(2)/3), float64(3)/2)
+}
+
+func MinBitFlips(start, goal int) int {
+	startSlice, goalSlice := GetEqual(strconv.FormatInt(int64(start), 2), strconv.FormatInt(int64(goal), 2))
+	var flipCount int
+	for i := 0; i < len(startSlice); i++ {
+		if startSlice[i] != goalSlice[i] {
+			startSlice[i] = goalSlice[i]
+			flipCount++
+		}
+	}
+	return flipCount
+}
+
+func GetEqual(s, g string) ([]rune, []rune) {
+	delta := len(s) - len(g)
+	if delta > 0 {
+		g = GetZeroString(delta) + g
+		return []rune(s), []rune(g)
+	}
+	s = GetZeroString(-delta) + s
+	return []rune(s), []rune(g)
+}
+
+func GetZeroString(n int) string {
+	var s string
+	for i := 0; i < n; i++ {
+		s += "0"
+	}
+	return s
+}
+
+func Xor(start, goal int) int {
+	return bits.OnesCount(uint(start ^ goal))
 }
 
 func Gcd(n, d int) int {
